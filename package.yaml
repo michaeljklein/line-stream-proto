@@ -1,0 +1,55 @@
+name:                line-stream-proto
+version:             0.1.0.0
+github:              "michaeljklein/line-stream-proto"
+license:             BSD3
+author:              "Michael Klein"
+maintainer:          "lambdamichael@gmail.com"
+copyright:           "2018 Michael Klein"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/michaeljklein/line-stream-proto#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- vector
+- text
+- mtl
+- comonad
+- transformers
+- free
+- ghc-prim
+
+library:
+  source-dirs: src
+
+executables:
+  line-stream-proto-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - line-stream-proto
+
+tests:
+  line-stream-proto-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - line-stream-proto
